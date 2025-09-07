@@ -1,1 +1,7 @@
-﻿module.exports = function (api) {\n  api.cache(true);\n  return {\n    presets: ['babel-preset-expo'],\n    plugins: ['react-native-worklets/plugin'],\n  };\n};\n
+﻿module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo'],
+    plugins: ['expo-router/babel'],
+  };
+};

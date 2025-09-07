@@ -1,5 +1,9 @@
 {
   "expo": {
+    "extra": {
+      "supabaseUrl": "https://ohrwcxuvtvihaxxxfxkg.supabase.co",
+      "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9ocndjeHV2dHZpaGF4eHhmeGtnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTcyNDk1ODQsImV4cCI6MjA3MjgyNTU4NH0.CjYSkTUq8gFKhgdepv1qWuTdM-U0AS4Jfs3usprw6Es"
+    },
     "name": "mobile-app",
     "slug": "mobile-app",
     "version": "1.0.0",
@@ -13,7 +17,10 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app requires camera access to capture photos."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -28,7 +35,9 @@
     "plugins": [
       "expo-router",
       "expo-localization",
-      "expo-font"
+      "expo-font",
+      "expo-camera"
     ]
   }
 }
+

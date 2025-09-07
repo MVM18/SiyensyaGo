@@ -1,1 +1,23 @@
-﻿import * as Localization from 'expo-localization';\nimport i18n from 'i18next';\nimport { initReactI18next } from 'react-i18next';\nimport en from '../assets/locales/en/common.json';\nimport fil from '../assets/locales/fil/common.json';\n\ni18n\n  .use(initReactI18next)\n  .init({\n    compatibilityJSON: 'v4',\n    resources: { en: { translation: en }, fil: { translation: fil } },\n    lng: Localization.locale.startsWith('fil') ? 'fil' : 'en',\n    fallbackLng: 'en',\n    interpolation: { escapeValue: false },\n  });\n\nexport default i18n;\n
+import { getLocales } from 'expo-localization';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import en from '../assets/locales/en/common.json';
+import fil from '../assets/locales/fil/common.json';
+
+if (!i18n.isInitialized) {
+	// Initialize i18n with English and Filipino resources
+	const primaryTag = (getLocales()[0]?.languageTag || 'en').toLowerCase();
+	const isFilipino = primaryTag.startsWith('fil') || primaryTag.startsWith('tl');
+
+	i18n
+		.use(initReactI18next)
+		.init({
+			compatibilityJSON: 'v4',
+			resources: { en: { translation: en }, fil: { translation: fil } },
+			lng: isFilipino ? 'fil' : 'en',
+			fallbackLng: 'en',
+			interpolation: { escapeValue: false },
+		});
+}
+
+export default i18n; 
